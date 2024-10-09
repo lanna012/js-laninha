@@ -1,0 +1,52 @@
+// suspense, aventura, drama, comédia
+
+// O menino e a Garça, LIVRE, aventura
+// O mal que nos habita, 18, suspense 
+// A voz do silencio, 14, drama
+// Monster, 16, drama, suspense
+// Ponyo; uma amizde que veio do mar, LIVRE, aventura
+// Ilha do Medo, 16, suspense, drama
+// Coraline e o mundo secreto, 10, aventura, drama
+
+let campoIdade; 
+let campoAventura
+
+function setup() {
+  createCanvas(800, 400);
+  createElement("h2", "Recomendador de Filmes");
+  createSpan("sua idade:");
+  campoIdade = createInput("5");
+  campoAventura = createCheckbox("gosta de aventura?");
+  
+}
+
+function draw() {
+  background("rgb(233,205,243)");
+  let idade = campoIdade. value();
+  let gostaDeAventura = campoAventura.checked();
+  let recomendacao = geraRecomendacao (idade, gostaDeAventura);
+  fill(color(76,0 , 115))
+  textAlign(CENTER, CENTER);
+  textSize(30);
+  text(recomendacao, width / 2, height / 2);
+}
+
+function geraRecomendacao(idade, gostaDeAventura) {
+    if(idade >= 10) {
+        if(idade >= 14) {
+            return "O menino e a Garça";
+        } else {
+            if(gostaDeAventura){
+                return "Coraline e o mundo Secreto";
+            } else {
+                return "Ta dando Onda";
+            }
+        }
+    } else {
+        if(gostaDeAventura) {
+            return "Ponyo; uma amizade que veio do mar";
+        } else {
+            return "Um Monstro em Paris";
+        }
+    }
+}
